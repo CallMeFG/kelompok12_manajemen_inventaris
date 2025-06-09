@@ -1,28 +1,42 @@
 <?php
+// Memulai session dan memuat koneksi database
+session_start();
 require_once '../config/db.php';
 
-if (!isset($_GET['id'])) {
-    die("ID produk tidak ditemukan.");
-}
+// TODO: Tambahkan pengecekan hak akses/role di sini nanti.
+// Misalnya, hanya admin yang boleh menghapus.
 
-$id = $_GET['id'];
+// Cek apakah 'id' ada di URL
+if (isset($_GET['id']) && !empty($_GET['id'])) {
+    $id = $_GET['id'];
 
-// Cek apakah produk ada
-$cek = $conn->prepare("SELECT * FROM products WHERE id = ?");
-$cek->bind_param("i", $id);
-$cek->execute();
-$result = $cek->get_result();
+    // Siapkan query DELETE menggunakan prepared statement untuk keamanan
+    $sql = "DELETE FROM products WHERE id = ?";
 
-if ($result->num_rows < 1) {
-    die("Produk tidak ditemukan.");
-}
+    if ($stmt = $conn->prepare($sql)) {
+        // Bind parameter 'id' ke statement
+        // "i" berarti tipenya adalah integer
+        $stmt->bind_param("i", $id);
 
-// Lanjut hapus
-$stmt = $conn->prepare("DELETE FROM products WHERE id = ?");
-$stmt->bind_param("i", $id);
-
-if ($stmt->execute()) {
-    header("Location: produk.php?msg=deleted");
+        // Eksekusi statement
+        if ($stmt->execute()) {
+            // Jika berhasil, redirect kembali ke halaman produk dengan pesan sukses
+            header("Location: produk.php?status=sukses_hapus");
+            $stmt->close();
+            exit();
+        } else {
+            // Jika gagal, redirect dengan pesan error
+            header("Location: produk.php?status=gagal_hapus");
+            $stmt->close();
+            exit();
+        }
+    }
 } else {
-    echo "Gagal menghapus produk: " . $stmt->error;
+    // Jika tidak ada 'id' di URL, redirect ke halaman produk
+    header("Location: produk.php");
+    exit();
 }
+
+// Tutup koneksi
+$conn->close();
+?>
