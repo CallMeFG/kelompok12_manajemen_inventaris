@@ -15,4 +15,3 @@ if ($conn->connect_error) {
 // Jika ingin menampilkan pesan sukses (opsional)
 // echo "Koneksi berhasil!";
 ?>
- <!-- // ini test aja -->
