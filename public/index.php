@@ -1,64 +1,102 @@
-<?php
-// 1. Memuat header
-require_once '../includes/header.php';
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manajemen Stok - Selamat Datang</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <style>
+        /* Sedikit style kustom untuk tampilan yang lebih baik */
+        .hero {
+            background: #f8f9fa;
+            padding: 6rem 0;
+        }
+        .feature-icon {
+            font-size: 3rem;
+            color: #0d6efd;
+        }
+        .section {
+            padding: 4rem 0;
+        }
+    </style>
+</head>
+<body>
 
-// --- LOGIKA UNTUK MENGAMBIL DATA RINGKASAN ---
-$sql_produk = "SELECT COUNT(id) AS total_produk FROM products";
-$result_produk = $conn->query($sql_produk);
-$total_produk = $result_produk->fetch_assoc()['total_produk'];
-
-$sql_supplier = "SELECT COUNT(id) AS total_supplier FROM suppliers";
-$result_supplier = $conn->query($sql_supplier);
-$total_supplier = $result_supplier->fetch_assoc()['total_supplier'];
-
-$sql_stok = "SELECT SUM(stock) AS total_stok FROM products";
-$result_stok = $conn->query($sql_stok);
-$total_stok = $result_stok->fetch_assoc()['total_stok'] ?? 0;
-
-$sql_penjualan_hari_ini = "SELECT COUNT(id) AS penjualan_hari_ini FROM sales WHERE DATE(sale_date) = CURDATE()";
-$result_penjualan_hari_ini = $conn->query($sql_penjualan_hari_ini);
-$penjualan_hari_ini = $result_penjualan_hari_ini->fetch_assoc()['penjualan_hari_ini'];
-?>
-
-<h1 class="mb-4">Dashboard</h1>
-<div class="row">
-    <div class="col-lg-3 col-md-6 mb-4">
-        <div class="card text-white bg-primary shadow h-100">
-            <div class="card-body">
-                <div class="card-title"><h5>Total Jenis Produk</h5></div>
-                <p class="card-text display-4"><?php echo $total_produk; ?></p>
+    <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm sticky-top">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="#">Manajemen Stok</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="mainNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="#fitur">Fitur</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#tentang">Tentang</a></li>
+                </ul>
+                <a href="auth/login.php" class="btn btn-primary ms-lg-3">Login</a>
             </div>
         </div>
-    </div>
-    <div class="col-lg-3 col-md-6 mb-4">
-        <div class="card text-white bg-success shadow h-100">
-            <div class="card-body">
-                <div class="card-title"><h5>Total Supplier</h5></div>
-                <p class="card-text display-4"><?php echo $total_supplier; ?></p>
-            </div>
-        </div>
-    </div>
-    <div class="col-lg-3 col-md-6 mb-4">
-        <div class="card text-white bg-warning shadow h-100">
-            <div class="card-body">
-                <div class="card-title"><h5>Total Stok Barang</h5></div>
-                <p class="card-text display-4"><?php echo $total_stok; ?></p>
-            </div>
-        </div>
-    </div>
-    <div class="col-lg-3 col-md-6 mb-4">
-        <div class="card text-white bg-danger shadow h-100">
-            <div class="card-body">
-                <div class="card-title"><h5>Transaksi Hari Ini</h5></div>
-                <p class="card-text display-4"><?php echo $penjualan_hari_ini; ?></p>
-            </div>
-        </div>
-    </div>
-</div>
+    </nav>
 
+    <header class="hero text-center">
+        <div class="container">
+            <h1 class="display-4 fw-bold">Solusi Manajemen Stok yang Efisien</h1>
+            <p class="lead text-muted my-4">Kelola produk, lacak transaksi, dan pantau supplier Anda dalam satu platform yang mudah digunakan.</p>
+            <a href="../public/dashboard.php" class="btn btn-primary btn-lg">Mulai Kelola Sekarang</a>
+        </div>
+    </header>
 
-<?php
-// 2. Menutup koneksi dan Memuat footer
-$conn->close();
-require_once '../includes/footer.php';
-?>
+    <section id="fitur" class="section">
+        <div class="container">
+            <div class="row text-center">
+                <div class="col-lg-12">
+                    <h2 class="mb-5">Fitur Unggulan Kami</h2>
+                </div>
+            </div>
+            <div class="row text-center g-4">
+                <div class="col-md-4">
+                    <div class="feature-icon mb-3">
+                        <i class="fa-solid fa-box-archive"></i>
+                    </div>
+                    <h3>Manajemen Produk</h3>
+                    <p class="text-muted">Tambah, lihat, ubah, dan hapus data produk dengan mudah. Lacak stok secara real-time.</p>
+                </div>
+                <div class="col-md-4">
+                    <div class="feature-icon mb-3">
+                        <i class="fa-solid fa-chart-line"></i>
+                    </div>
+                    <h3>Laporan Analitis</h3>
+                    <p class="text-muted">Dapatkan wawasan dari laporan penjualan terperinci, produk terlaris, dan data historis lainnya.</p>
+                </div>
+                <div class="col-md-4">
+                    <div class="feature-icon mb-3">
+                        <i class="fa-solid fa-truck-fast"></i>
+                    </div>
+                    <h3>Kelola Supplier & Transaksi</h3>
+                    <p class="text-muted">Catat semua transaksi penjualan dan kelola data supplier Anda untuk operasional yang lancar.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section id="tentang" class="section bg-light">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 mx-auto text-center">
+                    <h2 class="mb-4">Tentang Proyek Ini</h2>
+                    <p class="lead text-muted">Aplikasi ini adalah sistem manajemen stok berbasis web yang dibangun menggunakan PHP native, MySQL, dan Bootstrap. Proyek ini dirancang untuk menyediakan fungsionalitas inti dalam pengelolaan inventaris secara efisien dan aman.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="py-4 bg-dark text-white">
+        <div class="container text-center">
+            <p class="mb-0">Copyright &copy; <?php echo date("Y"); ?> Proyek Manajemen Stok</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
