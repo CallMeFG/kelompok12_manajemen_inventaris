@@ -1,64 +1,41 @@
 <?php
-// 1. Memuat header
-require_once '../includes/header.php';
-
-// --- LOGIKA UNTUK MENGAMBIL DATA RINGKASAN ---
-$sql_produk = "SELECT COUNT(id) AS total_produk FROM products";
-$result_produk = $conn->query($sql_produk);
-$total_produk = $result_produk->fetch_assoc()['total_produk'];
-
-$sql_supplier = "SELECT COUNT(id) AS total_supplier FROM suppliers";
-$result_supplier = $conn->query($sql_supplier);
-$total_supplier = $result_supplier->fetch_assoc()['total_supplier'];
-
-$sql_stok = "SELECT SUM(stock) AS total_stok FROM products";
-$result_stok = $conn->query($sql_stok);
-$total_stok = $result_stok->fetch_assoc()['total_stok'] ?? 0;
-
-$sql_penjualan_hari_ini = "SELECT COUNT(id) AS penjualan_hari_ini FROM sales WHERE DATE(sale_date) = CURDATE()";
-$result_penjualan_hari_ini = $conn->query($sql_penjualan_hari_ini);
-$penjualan_hari_ini = $result_penjualan_hari_ini->fetch_assoc()['penjualan_hari_ini'];
+// Memanggil file header
+require_once '../src/templates/header.php';
 ?>
 
-<h1 class="mb-4">Dashboard</h1>
-<div class="row">
-    <div class="col-lg-3 col-md-6 mb-4">
-        <div class="card text-white bg-primary shadow h-100">
-            <div class="card-body">
-                <div class="card-title"><h5>Total Jenis Produk</h5></div>
-                <p class="card-text display-4"><?php echo $total_produk; ?></p>
-            </div>
-        </div>
-    </div>
-    <div class="col-lg-3 col-md-6 mb-4">
-        <div class="card text-white bg-success shadow h-100">
-            <div class="card-body">
-                <div class="card-title"><h5>Total Supplier</h5></div>
-                <p class="card-text display-4"><?php echo $total_supplier; ?></p>
-            </div>
-        </div>
-    </div>
-    <div class="col-lg-3 col-md-6 mb-4">
-        <div class="card text-white bg-warning shadow h-100">
-            <div class="card-body">
-                <div class="card-title"><h5>Total Stok Barang</h5></div>
-                <p class="card-text display-4"><?php echo $total_stok; ?></p>
-            </div>
-        </div>
-    </div>
-    <div class="col-lg-3 col-md-6 mb-4">
-        <div class="card text-white bg-danger shadow h-100">
-            <div class="card-body">
-                <div class="card-title"><h5>Transaksi Hari Ini</h5></div>
-                <p class="card-text display-4"><?php echo $penjualan_hari_ini; ?></p>
-            </div>
+<div class="landing-hero">
+    <div class="container">
+        <div class="hero-content">
+            <h1>Sistem Manajemen Inventaris Modern</h1>
+            <p>Solusi mudah untuk mengelola produk, melacak stok, dan menganalisis data inventaris toko Anda secara efisien.</p>
+            <a href="dashboard.php" class="btn btn-primary">Masuk ke Aplikasi</a>
         </div>
     </div>
 </div>
 
-
-<?php
-// 2. Menutup koneksi dan Memuat footer
-$conn->close();
-require_once '../includes/footer.php';
-?>
+<main class="container">
+    <div class="features-section">
+        <h2>Fitur Utama Kami</h2>
+        <div class="features-grid">
+            <div class="feature-item">
+                <img src="assets/images/icon-produk.svg" alt="Ikon Produk" class="feature-icon">
+                <h3>Manajemen Produk</h3>
+                <p>Tambah, edit, dan hapus produk dengan mudah. Kategorikan barang untuk pencarian yang lebih cepat.</p>
+            </div>
+            <div class="feature-item">
+                <img src="assets/images/icon-stok.svg" alt="Ikon Stok" class="feature-icon">
+                <h3>Pelacakan Stok Real-time</h3>
+                <p>Pantau jumlah stok secara akurat. Dapatkan notifikasi untuk stok yang menipis.</p>
+            </div>
+            <div class="feature-item">
+                <img src="assets/images/icon-laporan.svg" alt="Ikon Laporan" class="feature-icon">
+                <h3>Laporan & Analisis</h3>
+                <p>Lihat laporan ringkas tentang total aset, produk terlaris, dan performa bisnis Anda.</p>
+            </div>
+        </div>
+    </div>
+</main> <?php
+        // Memanggil file footer
+        // Perhatikan: tag <main> sekarang ditutup di atas ini, bukan di footer.php
+        require_once '../src/templates/footer.php';
+        ?>

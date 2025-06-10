@@ -1,0 +1,317 @@
+/* Reset & Global */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background-color: #f4f7f9;
+    color: #333;
+    line-height: 1.6;
+}
+.container {
+    max-width: 1100px;
+    margin: 20px auto;
+    padding: 0 20px;
+}
+a {
+    color: #007bff;
+    text-decoration: none;
+}
+a:hover {
+    text-decoration: underline;
+}
+
+/* Navbar */
+.navbar {
+    background-color: #fff;
+    padding: 1rem 0;
+    border-bottom: 1px solid #e0e0e0;
+}
+.navbar .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+.logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #333;
+}
+.nav-links {
+    list-style: none;
+    display: flex;
+}
+.nav-links li {
+    margin-left: 20px;
+}
+
+/* Main Content */
+h1, h2 {
+    margin-bottom: 1rem;
+    color: #3a414e;
+}
+
+/* Footer */
+.site-footer {
+    text-align: center;
+    padding: 1rem 0;
+    margin-top: 2rem;
+    color: #777;
+    font-size: 0.9em;
+}
+
+/* Tombol */
+.btn {
+    display: inline-block;
+    padding: 0.7rem 1.5rem;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-align: center;
+    font-size: 1rem;
+}
+.btn:hover {
+    background-color: #0056b3;
+    text-decoration: none;
+}
+/* --- Styling untuk Landing Page --- */
+
+/* Hero Section */
+.landing-hero {
+    background-color: #e9ecef;
+    padding: 60px 0; /* Ubah padding atas/bawah, hapus padding kanan/kiri */
+    text-align: center;
+    margin-bottom: 40px;
+}
+.hero-content h1 {
+    font-size: 2.8rem;
+    color: #212529;
+}
+
+.hero-content p {
+    font-size: 1.2rem;
+    color: #495057;
+    max-width: 600px;
+    margin: 20px auto 30px auto;
+}
+
+.btn.btn-primary {
+    background-color: #0056b3;
+    font-size: 1.1rem;
+    padding: 15px 30px;
+}
+.btn.btn-primary:hover {
+    background-color: #003d82;
+}
+
+/* Features Section */
+.features-section {
+    text-align: center;
+    padding: 40px 0;
+}
+
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    margin-top: 30px;
+    text-align: left;
+}
+
+.feature-item {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+.feature-icon {
+    width: 50px;
+    height: 50px;
+    margin-bottom: 20px;
+}
+
+.feature-item h3 {
+    margin-bottom: 10px;
+}
+/* --- Styling untuk Tabel dan Halaman Produk --- */
+
+.page-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #fff;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    border-radius: 8px;
+    overflow: hidden; /* Agar border-radius terlihat di sudut tabel */
+}
+
+th, td {
+    padding: 15px;
+    text-align: left;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+thead th {
+    background-color: #f4f7f9;
+    font-weight: bold;
+    color: #333;
+}
+
+tbody tr:hover {
+    background-color: #f1f1f1;
+}
+
+/* Styling untuk Kolom Aksi */
+.actions a {
+    margin-right: 10px;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 0.9em;
+}
+.actions .btn-edit {
+    background-color: #ffc107;
+    color: #333;
+}
+.actions .btn-edit:hover {
+    background-color: #e0a800;
+    text-decoration: none;
+}
+.actions .btn-hapus {
+    background-color: #dc3545;
+    color: #fff;
+}
+.actions .btn-hapus:hover {
+    background-color: #c82333;
+    text-decoration: none;
+}
+
+/* Styling untuk Label Status */
+.status {
+    padding: 4px 8px;
+    border-radius: 12px;
+    font-size: 0.8em;
+    font-weight: bold;
+    color: #fff;
+    text-transform: uppercase;
+}
+.status-tersedia {
+    background-color: #28a745; /* Hijau */
+}
+.status-stok-menipis {
+    background-color: #ffc107; /* Kuning */
+    color: #333;
+}
+.status-habis {
+    background-color: #6c757d; /* Abu-abu */
+}
+/* --- Styling untuk Form dan Feedback --- */
+.form-produk {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 8px;
+    margin-top: 2rem;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+.form-group {
+    margin-bottom: 1.5rem;
+}
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+}
+.form-group input[type="text"],
+.form-group input[type="number"],
+.form-group select {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1rem;
+}
+.btn-kembali {
+    display: inline-block;
+    margin-bottom: 1rem;
+    color: #555;
+    font-size: 0.9em;
+}
+
+/* Alert/Pesan Feedback */
+.alert-sukses {
+    background-color: #d4edda;
+    color: #155724;
+    padding: 15px;
+    border: 1px solid #c3e6cb;
+    border-radius: 5px;
+    margin-bottom: 1.5rem;
+}
+/* --- Styling untuk Halaman Kategori --- */
+.form-container {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    margin-bottom: 2rem;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+.form-container form {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.form-container input[type="text"] {
+    flex-grow: 1; /* Membuat input text memenuhi sisa ruang */
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.form-container .btn-batal {
+    background-color: #6c757d;
+    color: white;
+    padding: 12px 20px;
+    border-radius: 5px;
+}
+.form-container .btn-batal:hover {
+    background-color: #5a6268;
+    text-decoration: none;
+}
+
+.separator {
+    border: 0;
+    height: 1px;
+    background-color: #e0e0e0;
+    margin: 2rem 0;
+}
+
+.alert-error {
+    background-color: #f8d7da;
+    color: #721c24;
+    padding: 15px;
+    border: 1px solid #f5c6cb;
+    border-radius: 5px;
+    margin-bottom: 1.5rem;
+}
+/* --- Styling untuk Halaman Log Stok --- */
+.perubahan-positif {
+    color: #28a745; /* Hijau */
+    font-weight: bold;
+}
+.perubahan-negatif {
+    color: #dc3545; /* Merah */
+    font-weight: bold;
+}
