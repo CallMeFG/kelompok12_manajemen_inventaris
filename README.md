@@ -1,9 +1,9 @@
-Kelompok 12 
-Kelas 1 TIB
-Project Workshop Basis Data Lanjut
-Anggota Kelompok:
+Kelompok 12 |
+Kelas 1 TIB |
+Project Workshop Basis Data Lanjut |
+Anggota Kelompok: 
 -Fathur rizky assani
--Robby kurnia
+-Robby kurnia |
 
 # Aplikasi Manajemen Inventaris Sederhana
 
