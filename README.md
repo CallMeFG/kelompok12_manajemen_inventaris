@@ -1,3 +1,10 @@
+Kelompok 12 
+Kelas 1 TIB
+Project Workshop Basis Data Lanjut
+Anggota Kelompok:
+-Fathur rizky assani
+-Robby kurnia
+
 # Aplikasi Manajemen Inventaris Sederhana
 
 Aplikasi ini adalah sistem manajemen inventaris berbasis web yang dibangun menggunakan PHP dan MySQL. Proyek ini dirancang sebagai aplikasi web dinamis yang memungkinkan pengguna untuk mengelola data produk dan kategori secara efisien. Fokus utama dari proyek ini adalah implementasi operasi CRUD (Create, Read, Update, Delete) yang fundamental, penggunaan objek database tingkat lanjut seperti View, Trigger, dan Function, serta penyajian data agregat untuk analisis bisnis sederhana.
