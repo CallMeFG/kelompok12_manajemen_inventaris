@@ -22,8 +22,7 @@ try {
 
 <main class="container">
     <h1>Riwayat Perubahan Stok</h1>
-    <p>Halaman ini menampilkan semua catatan perubahan jumlah stok produk yang terjadi secara otomatis berkat database trigger.</p>
-
+   
     <table>
         <thead>
             <tr>
